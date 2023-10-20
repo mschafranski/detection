@@ -6,6 +6,9 @@ layout: page
 <input id="photo" type="file">
 <div id="results"></div>
 <script>
+
+import { client } from "@gradio/client";
+
   async function loaded(reader) {
     const response = await fetch("https://schafranski-masked-faces.hf.space/--replicas/mlt7b/", {
       method: "POST", body: JSON.stringify({ "data": [reader.result] }),
